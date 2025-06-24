@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+<!-- Mermaid-generated diagram placeholder. Replace with actual SVG export if needed. -->
+<rect x="0" y="0" width="1200" height="900" fill="#fff"/>
+<text x="600" y="60" font-size="36" text-anchor="middle" fill="#222">Adaptive Microservices Testing Swarm - Architecture</text>
+<!-- Frontend -->
+<rect x="100" y="150" width="300" height="80" fill="#e0f7fa" stroke="#00bcd4" stroke-width="2" rx="16"/>
+<text x="250" y="195" font-size="20" text-anchor="middle" fill="#00796b">Frontend (React + D3/Three.js)</text>
+<!-- User -->
+<ellipse cx="250" cy="80" rx="60" ry="30" fill="#fffde7" stroke="#fbc02d" stroke-width="2"/>
+<text x="250" y="90" font-size="18" text-anchor="middle" fill="#fbc02d">User (Browser)</text>
+<!-- Orchestrator -->
+<rect x="500" y="150" width="300" height="80" fill="#e3f2fd" stroke="#2196f3" stroke-width="2" rx="16"/>
+<text x="650" y="195" font-size="20" text-anchor="middle" fill="#1565c0">FastAPI Orchestrator</text>
+<!-- Testing Agents -->
+<rect x="500" y="300" width="300" height="180" fill="#f3e5f5" stroke="#8e24aa" stroke-width="2" rx="16"/>
+<text x="650" y="330" font-size="18" text-anchor="middle" fill="#6a1b9a">Testing Agents</text>
+<text x="650" y="360" font-size="15" text-anchor="middle" fill="#6a1b9a">- Service Discovery</text>
+<text x="650" y="380" font-size="15" text-anchor="middle" fill="#6a1b9a">- Test Generator</text>
+<text x="650" y="400" font-size="15" text-anchor="middle" fill="#6a1b9a">- Harmonization</text>
+<text x="650" y="420" font-size="15" text-anchor="middle" fill="#6a1b9a">- Performance</text>
+<text x="650" y="440" font-size="15" text-anchor="middle" fill="#6a1b9a">- Orchestrator</text>
+<!-- Mock Microservices -->
+<rect x="500" y="600" width="300" height="180" fill="#fff3e0" stroke="#ff9800" stroke-width="2" rx="16"/>
+<text x="650" y="630" font-size="18" text-anchor="middle" fill="#e65100">Mock Microservices (Flask)</text>
+<text x="650" y="660" font-size="15" text-anchor="middle" fill="#e65100">account, payment, risk, ...</text>
+<!-- Arrows -->
+<line x1="250" y1="110" x2="250" y2="150" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="400" y1="190" x2="500" y2="190" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="800" y1="190" x2="900" y2="190" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="650" y1="230" x2="650" y2="300" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+<line x1="650" y1="480" x2="650" y2="600" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+<!-- Arrow marker definition -->
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L10,5 L0,10 z" fill="#888" />
+  </marker>
+</defs>
+</svg> 
