@@ -1,79 +1,77 @@
-# UBS-CS Microservices Testing Swarm
+# Cognizant Talent Edge CRM Toolkit
 
-## Overview
-A full-stack demo for adaptive, intelligent microservices testing and integration, designed for banking and enterprise use cases. Includes:
-- 12 mock Flask microservices
-- FastAPI orchestrator and agents
-- React frontend with D3.js/Three.js visualizations
-
-## Quick Start
-
-### 1. Install Dependencies
-- **Backend:**
-  ```sh
-  pip3 install -r backend/requirements.txt
-  pip3 install 'uvicorn[standard]'
-  ```
-- **Frontend:**
-  ```sh
-  cd frontend
-  npm install
-  ```
-
-### 2. Start Mock Microservices
-From the `microservices-testing-swarm` directory:
-```sh
-python backend/start_all_services.py
-```
-
-### 3. Start the Orchestrator Backend (FastAPI)
-From the `microservices-testing-swarm/backend` directory:
-```sh
-PYTHONPATH=. ~/Library/Python/3.9/bin/uvicorn main:app --reload --port 8001
-```
-- If you see `Address already in use`, run `lsof -i :8001` and `kill <PID>` to free the port.
-
-### 4. Start the Frontend
-From the `frontend` directory:
-```sh
-npm start
-```
-- The app will be available at [http://localhost:3000](http://localhost:3000)
-- The frontend connects to the backend at `ws://localhost:8001/ws`
-
-## Architecture
-- **Mock Services:** Flask apps simulating core banking microservices
-- **Orchestrator:** FastAPI app with agents for discovery, test generation, harmonization, performance, and coordination
-- **Frontend:** React app with D3/Three.js for mesh, risk, and performance visualization
+A comprehensive Streamlit dashboard for talent management and CRM operations, featuring interactive visualizations, AI-powered queries, and PDF export capabilities.
 
 ## Features
-- Automatic service discovery
-- Intelligent test generation
-- Real-time harmonization testing
-- Performance analysis
-- Risk heatmapping
-- Live WebSocket metrics
 
-## Business Value
-- 50% faster testing cycles
-- 99.7% test coverage
-- $5M risk mitigation
-- 3x faster integration
+- **📊 Dashboard**: Overview of talent metrics across locations with interactive charts
+- **🔍 Project Query**: Advanced filtering by project type, skills, roles, and locations
+- **📈 Visualizations**: Interactive charts and heatmaps for talent insights
+- **📅 Availability**: Real-time availability tracking and deployment scheduling
+- **🤖 AI-Powered Queries**: Natural language processing for talent searches
+- **📄 PDF Export**: Professional reports for client presentations
 
-## Troubleshooting
-- **WebSocket errors:** Ensure backend is running on port 8001 and `uvicorn[standard]` is installed
-- **Port conflicts:** Use `lsof -i :8001` and `kill <PID>` to free the port
-- **ModuleNotFoundError:** Always run backend with `PYTHONPATH=.` from the `backend` directory
-- **Frontend build errors:** Run `npm install` in the `frontend` directory
+## Installation
 
-## Demo Script
-1. Start all services and backend as above
-2. Launch frontend and open [http://localhost:3000](http://localhost:3000)
-3. Use the UI to:
-   - Visualize the service mesh
-   - Start/stop testing and see real-time updates
-   - Explore risk and performance panels
-   - Open the help modal for business context
+1. Install the required dependencies:
+```bash
+pip install --break-system-packages -r requirements.txt
+```
+
+2. Add the local bin directory to your PATH:
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+## Usage
+
+Run the Streamlit application:
+```bash
+streamlit run app.py --server.address=0.0.0.0 --server.port=8501
+```
+
+The application will be available at `http://localhost:8501`
+
+## Application Structure
+
+- **Main Dashboard**: Talent overview with key metrics and skill distribution
+- **Project Query**: Filter and search associates by various criteria
+- **Visualizations**: Interactive charts showing talent distribution and availability
+- **Availability Management**: Track team availability and deployment readiness
+- **Help Section**: Comprehensive guide for using the toolkit
+
+## Technologies Used
+
+- **Streamlit**: Web application framework
+- **Pandas**: Data manipulation and analysis
+- **Plotly**: Interactive data visualizations
+- **ReportLab**: PDF generation for reports
+- **Custom CSS**: Professional styling with Cognizant branding
+
+## Sample Queries
+
+Try these natural language queries in the AI-powered search:
+- "Mobile testers in Zurich available now"
+- "Python developers across all locations"
+- "AI-trained associates available immediately"
+
+## Data Features
+
+The application includes mock data showcasing:
+- Multiple project types (Integration/Migration, Pega, Mobile Apps, Cards)
+- Skills tracking (AI, Python, Java, Cybersecurity, Cloud)
+- Location-based management (Zurich, Pune)
+- Role classifications (Developer, Tester)
+- Availability metrics (immediate and 1-month)
+- Experience tracking
+
+## Export Capabilities
+
+- Generate professional PDF reports
+- Include query parameters and timestamps
+- Formatted tables with company branding
+- Download directly from the interface
 
 ---
-For questions or enhancements, contact the Cognizant demo team. 
+
+*This is a prototype application demonstrating advanced CRM capabilities for talent management.* 
