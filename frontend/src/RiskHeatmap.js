@@ -6,7 +6,8 @@ const RiskHeatmap = () => {
   const mountRef = useRef(null);
 
   useEffect(() => {
-    if (!mountRef.current) return;
+    const mountElement = mountRef.current;
+    if (!mountElement) return;
     // Scene setup
     const width = 600;
     const height = 350;
@@ -16,7 +17,7 @@ const RiskHeatmap = () => {
     camera.position.set(0, 0, 20);
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(width, height);
-    mountRef.current.appendChild(renderer.domElement);
+    mountElement.appendChild(renderer.domElement);
 
     // Create risk cubes
     const cubes = [];
@@ -60,7 +61,9 @@ const RiskHeatmap = () => {
 
     // Cleanup
     return () => {
-      mountRef.current?.removeChild(renderer.domElement);
+      if (mountElement && renderer.domElement) {
+        mountElement.removeChild(renderer.domElement);
+      }
     };
   }, []);
 
