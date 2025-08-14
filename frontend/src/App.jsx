@@ -39,17 +39,34 @@ const App = () => {
   const [helpOpen, setHelpOpen] = useState(false);
 
   useEffect(() => {
-    // WebSocket connection indicator
+    // WebSocket connection indicator - Demo mode for Vercel deployment
     let ws = null;
     function connect() {
-      ws = new window.WebSocket('ws://localhost:8001/ws');
-      ws.onopen = () => setWsConnected(true);
-      ws.onclose = () => setWsConnected(false);
-      ws.onerror = () => setWsConnected(false);
+      // Check if we're in production (Vercel) or development
+      const isProduction = window.location.hostname !== 'localhost';
+      
+      if (isProduction) {
+        // Demo mode - simulate WebSocket connection
+        setWsConnected(true);
+        // Simulate real-time updates for demo
+        const interval = setInterval(() => {
+          // Simulate test results for demo
+          if (testing) {
+            // This will be handled by the testing state
+          }
+        }, 2000);
+        return () => clearInterval(interval);
+      } else {
+        // Development mode - real WebSocket
+        ws = new window.WebSocket('ws://localhost:8001/ws');
+        ws.onopen = () => setWsConnected(true);
+        ws.onclose = () => setWsConnected(false);
+        ws.onerror = () => setWsConnected(false);
+      }
     }
     connect();
     return () => { ws && ws.close(); };
-  }, []);
+  }, [testing]);
 
   return (
     <Box sx={{ minHeight: '100vh', background: '#0a0a0a', pb: 6 }}>
@@ -102,9 +119,72 @@ const App = () => {
           ))}
         </Box>
         <Box sx={{ color: '#fff', fontFamily: 'monospace', fontWeight: 'bold', fontSize: 16 }}>
-          Built by <span style={{ color: '#00ffff' }}>Cognizant</span>
+          <span style={{ color: '#ff00ff' }}>AI-Powered Test Automation</span>
         </Box>
       </Paper>
+      
+      {/* Developer Contact Panel */}
+      <Paper elevation={8} sx={{ maxWidth: 1200, mx: 'auto', mt: 2, mb: 2, borderRadius: 4, background: 'rgba(20,20,20,0.8)', boxShadow: '0 0 32px #00ffff44', p: 3, backdropFilter: 'blur(8px)' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Box sx={{ color: '#fff', fontFamily: 'monospace' }}>
+            <Typography variant="h6" sx={{ color: '#00ffff', fontWeight: 'bold', mb: 1 }}>
+              Developed by Rahuul Pande
+            </Typography>
+            <Typography variant="body2" sx={{ color: '#ccc', mb: 2 }}>
+              Test Automation Engineer | AI Enthusiast
+            </Typography>
+            <Typography variant="body2" sx={{ color: '#ccc', fontSize: 14 }}>
+              Keenly Looking for AI-Powered Solutions | Test Automation | Banking Integration
+            </Typography>
+          </Box>
+          <Box sx={{ display: 'flex', gap: 2 }}>
+            <Button
+              variant="contained"
+              href="https://www.linkedin.com/in/rahuulpande/"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ 
+                background: '#0077b5', 
+                color: '#fff', 
+                fontWeight: 'bold',
+                '&:hover': { background: '#005885' },
+                minWidth: 100
+              }}
+            >
+              LinkedIn
+            </Button>
+            <Button
+              variant="contained"
+              href="https://github.com/rahuulpande"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ 
+                background: '#333', 
+                color: '#fff', 
+                fontWeight: 'bold',
+                '&:hover': { background: '#555' },
+                minWidth: 100
+              }}
+            >
+              GitHub
+            </Button>
+            <Button
+              variant="contained"
+              href="mailto:rahuulpande@gmail.com"
+              sx={{ 
+                background: '#00a651', 
+                color: '#fff', 
+                fontWeight: 'bold',
+                '&:hover': { background: '#008a44' },
+                minWidth: 100
+              }}
+            >
+              Email
+            </Button>
+          </Box>
+        </Box>
+      </Paper>
+      
       {/* Color Legend */}
       <Box sx={{ maxWidth: 1200, mx: 'auto', mb: 1, display: 'flex', alignItems: 'center', gap: 2, pl: 2 }}>
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
@@ -174,6 +254,32 @@ const App = () => {
           <Button onClick={() => setHelpOpen(false)} sx={{ color: '#00ffff', fontWeight: 'bold' }}>Close</Button>
         </DialogActions>
       </Dialog>
+      
+      {/* Footer */}
+      <Box sx={{ mt: 4, py: 3, textAlign: 'center', borderTop: '1px solid #333' }}>
+        <Typography variant="body2" sx={{ color: '#666', fontFamily: 'monospace' }}>
+          © 2024 Rahuul Pande | Test Automation Engineer & AI Enthusiast | UBS-CS Integration Control Tower | Built with React, FastAPI & D3.js
+        </Typography>
+        <Box sx={{ mt: 1, display: 'flex', justifyContent: 'center', gap: 2 }}>
+          <Typography variant="caption" sx={{ color: '#666' }}>
+            <a href="https://www.linkedin.com/in/rahuulpande/" target="_blank" rel="noopener noreferrer" style={{ color: '#00ffff', textDecoration: 'none' }}>
+              LinkedIn
+            </a>
+          </Typography>
+          <Typography variant="caption" sx={{ color: '#666' }}>|</Typography>
+          <Typography variant="caption" sx={{ color: '#666' }}>
+            <a href="https://github.com/rahuulpande" target="_blank" rel="noopener noreferrer" style={{ color: '#00ffff', textDecoration: 'none' }}>
+              GitHub
+            </a>
+          </Typography>
+          <Typography variant="caption" sx={{ color: '#666' }}>|</Typography>
+          <Typography variant="caption" sx={{ color: '#666' }}>
+            <a href="mailto:rahuulpande@gmail.com" style={{ color: '#00ffff', textDecoration: 'none' }}>
+              Email
+            </a>
+          </Typography>
+        </Box>
+      </Box>
     </Box>
   );
 };

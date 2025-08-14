@@ -6,6 +6,18 @@ A full-stack demo for adaptive, intelligent microservices testing and integratio
 - FastAPI orchestrator and agents
 - React frontend with D3.js/Three.js visualizations
 
+## About the Developer
+
+**Rahuul Pande**  
+Test Automation Engineer | AI Enthusiast  
+Keenly Looking for AI-Powered Solutions | Test Automation | Banking Integration  
+
+- **LinkedIn**: [https://www.linkedin.com/in/rahuulpande/](https://www.linkedin.com/in/rahuulpande/)
+- **GitHub**: [https://github.com/rahuulpande](https://github.com/rahuulpande)
+- **Email**: rahuulpande@gmail.com
+
+---
+
 ## Quick Start
 
 ### 1. Install Dependencies
